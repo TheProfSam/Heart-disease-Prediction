@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pkl.bak
+.venv/
+env/
+venv/
+
+# Flutter / Android legacy artifacts
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+android/.gradle/
+android/local.properties
+android/app/debug
+android/app/profile
+android/app/release
+*.iml
+.metadata
+
+# IDE
+.idea/
+.vscode/
+
+# Unrelated temporary files
+Queensbury_Montessori_Project.pptx*
+slides_work/
