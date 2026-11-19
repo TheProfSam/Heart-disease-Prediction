@@ -74,8 +74,17 @@ class HeartPredictor:
         "stress_level",
     ]
 
-    def __init__(self, model_path: Path = Path("heart_disease_rf_model.pkl")):
-        self.model_path = model_path
+    def __init__(self, model_path: Optional[Path] = None):
+        if model_path is None:
+            # Check current working directory, then file parent directory
+            candidates = [
+                Path("heart_disease_rf_model.pkl"),
+                Path(__file__).resolve().parent / "heart_disease_rf_model.pkl",
+                Path(__file__).resolve().parent.parent / "heart_disease_rf_model.pkl",
+            ]
+            self.model_path = next((p for p in candidates if p.exists()), candidates[0])
+        else:
+            self.model_path = model_path
         self.rf_model = None
         self._load_model()
 
